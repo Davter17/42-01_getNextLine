@@ -1,0 +1,23 @@
+# Object files
+.obj/
+*.o
+
+# Libraries
+*.a
+
+# Test binary
+gnl_test
+
+# Dependencies
+.deps/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*~
+*.swp
+*.swo
+.vscode/
+.idea/

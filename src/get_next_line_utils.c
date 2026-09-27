@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-// Returns a pointer to the first character `c` in the string `s`.
+/* Returns a pointer to the first occurrence of c in the string s. */
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
@@ -26,7 +26,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-// Concatenates the strings freeing s1 and returns a new string.
+/* Concatenates s1 and s2, frees s1, and returns the new string. */
 char	*ft_strjoin_and_replace(char *s1, char *s2)
 {
 	size_t	len1;
@@ -34,7 +34,7 @@ char	*ft_strjoin_and_replace(char *s1, char *s2)
 	char	*new_str;
 
 	if (!s1 || !s2)
-		return (NULL);
+		return (free(s1), NULL);
 	len1 = 0;
 	while (s1[len1])
 		len1++;
@@ -43,7 +43,7 @@ char	*ft_strjoin_and_replace(char *s1, char *s2)
 		len2++;
 	new_str = malloc(len1 + len2 + 1);
 	if (!new_str)
-		return (NULL);
+		return (free(s1), NULL);
 	len1 = -1;
 	while (s1[++len1])
 		new_str[len1] = s1[len1];
@@ -51,11 +51,10 @@ char	*ft_strjoin_and_replace(char *s1, char *s2)
 	while (s2[++len2])
 		new_str[len1 + len2] = s2[len2];
 	new_str[len1 + len2] = '\0';
-	free(s1);
-	return (new_str);
+	return (free(s1), new_str);
 }
 
-// Extracts a substring starting at `start` from the string `s`.
+/* Extracts a substring starting at start from the string s. */
 char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	char	*sub;
@@ -76,7 +75,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	return (sub);
 }
 
-// Allocates memory and copies the string `s`, returning a pointer to it.
+/* Allocates and copies string s, returning a pointer to it. */
 char	*ft_strdup(const char *s)
 {
 	size_t	len;

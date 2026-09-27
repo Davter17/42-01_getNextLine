@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpico-bu <mpico-bu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 22:16:40 by mpico-bu          #+#    #+#             */
-/*   Updated: 2025/02/07 15:14:47 by mpico-bu         ###   ########.fr       */
+/*   Updated: 2025/02/08 20:54:46 by mpico-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
-// Reads from file descriptor and stores data in buffer until '\n' or EOF.  
+/* Reads from fd and appends to buffer until a newline or EOF is found. */
 char	*read_and_store(int fd, char *buffer)
 {
 	char	*read_buf;
@@ -38,10 +38,10 @@ char	*read_and_store(int fd, char *buffer)
 	return (buffer);
 }
 
-// Extracts a full line from the buffer up to the first '\n'.  
+/* Extracts a full line from the buffer up to and including the first '\n'. */
 char	*extract_line(char *buffer)
 {
-	int		i;
+	size_t	i;
 	char	*line;
 
 	i = 0;
@@ -53,10 +53,10 @@ char	*extract_line(char *buffer)
 	return (line);
 }
 
-// Updates the buffer by removing the extracted line.  
+/* Removes the extracted line from the buffer and returns the remainder. */
 char	*update_buffer(char *buffer)
 {
-	int		i;
+	size_t	i;
 	char	*new_buffer;
 
 	i = 0;
@@ -71,7 +71,7 @@ char	*update_buffer(char *buffer)
 	return (new_buffer);
 }
 
-// Retrieves the next line from the file descriptor.  
+/* Retrieves the next line from the file descriptor fd. */
 char	*get_next_line(int fd)
 {
 	static char	*buffer[MAX_FD];
