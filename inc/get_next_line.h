@@ -32,7 +32,7 @@ char	*update_buffer(char *buffer);
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin_and_replace(char *s1, char *s2);
-char	*ft_substr(char *s, unsigned int start, size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s);
 
 #endif

@@ -55,7 +55,7 @@ char	*ft_strjoin_and_replace(char *s1, char *s2)
 }
 
 /* Extracts a substring starting at start from the string s. */
-char	*ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	i;
